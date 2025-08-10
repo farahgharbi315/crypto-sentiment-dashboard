@@ -2,32 +2,44 @@
 # Copyright (c) 2025–present wiqilee
 
 # -----------------------------
-# Python
+# Python / packaging
 # -----------------------------
 __pycache__/
 *.py[cod]
-*.pyo
 *.pyd
+*.pyo
+*.pdb
+*.so
+*.egg
 *.egg-info/
 dist/
 build/
+.eggs/
+pip-wheel-metadata/
+
+# -----------------------------
+# Caches / tooling
+# -----------------------------
 .mypy_cache/
 .pytest_cache/
 .ruff_cache/
 .coverage
+.coverage.*
+htmlcov/
 *.log
 
 # -----------------------------
-# Virtual environment
+# Virtual environments / secrets
 # -----------------------------
 .venv/
 venv/
 ENV/
 .env
+.env.*
 *.env
 
 # -----------------------------
-# OS
+# OS junk
 # -----------------------------
 .DS_Store
 Thumbs.db
@@ -40,14 +52,14 @@ Thumbs.db
 *.code-workspace
 
 # -----------------------------
-# Secrets & local config
+# Local config & secrets
 # -----------------------------
 config.toml
 .streamlit/secrets.toml
 .streamlit/credentials.toml
 
 # -----------------------------
-# Data & outputs (generated)
+# Generated data & charts
 # -----------------------------
 data/
 charts/
@@ -55,18 +67,16 @@ charts/
 !data/.gitkeep
 !charts/.gitkeep
 
-# Generated files at repo root (don’t block images elsewhere)
+# -----------------------------
+# Export artifacts at repo root
+# (won’t block images elsewhere)
+# -----------------------------
 /*.pdf
 /*.png
 
 # -----------------------------
-# Jupyter (if any)
+# Jupyter (optional)
+# uncomment if you don't want notebooks tracked
 # -----------------------------
 .ipynb_checkpoints/
-
-# -----------------------------
-# Optional: tool/version managers
-# -----------------------------
-.python-version
-.poetry/
-pip-wheel-metadata/
+# *.ipynb
