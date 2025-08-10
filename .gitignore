@@ -1,0 +1,72 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025–present wiqilee
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+*.log
+
+# -----------------------------
+# Virtual environment
+# -----------------------------
+.venv/
+venv/
+ENV/
+.env
+*.env
+
+# -----------------------------
+# OS
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# IDE
+# -----------------------------
+.vscode/
+.idea/
+*.code-workspace
+
+# -----------------------------
+# Secrets & local config
+# -----------------------------
+config.toml
+.streamlit/secrets.toml
+.streamlit/credentials.toml
+
+# -----------------------------
+# Data & outputs (generated)
+# -----------------------------
+data/
+charts/
+# keep the folders but ignore their contents
+!data/.gitkeep
+!charts/.gitkeep
+
+# Generated files at repo root (don’t block images elsewhere)
+/*.pdf
+/*.png
+
+# -----------------------------
+# Jupyter (if any)
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# Optional: tool/version managers
+# -----------------------------
+.python-version
+.poetry/
+pip-wheel-metadata/
