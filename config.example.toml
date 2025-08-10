@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025–present wiqilee
+
+# Copy this to config.toml and add your real key locally.
+newsapi_key = ""   # <-- put your NewsAPI key here (keep this file public-safe)
+
+# Sources
+use_newsapi = true
+use_reddit  = false   # set true only if you install snscrape
+
+# Search
+query      = "(bitcoin OR ethereum OR crypto OR blockchain OR BTC OR ETH OR SOL)"
+language   = "en"
+days       = 7
+page_size  = 50       # NewsAPI free cap ~100 total; 50 x 2 pages ≈ 100
+
+# Reddit (snscrape)
+reddit_limit = 100
+
+# Labels for grouping sentiment
+symbols = "BTC,ETH,SOL"
+
+# CoinGecko IDs
+[coingecko_ids]
+BTC = "bitcoin"
+ETH = "ethereum"
+SOL = "solana"
+
+# Output
+out_dir   = "data"
+chart_dir = "charts"
